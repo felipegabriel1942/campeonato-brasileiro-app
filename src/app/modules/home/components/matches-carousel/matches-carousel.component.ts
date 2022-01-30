@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Match } from 'src/app/shared/models/match.model';
 
 @Component({
   selector: 'app-matches-carousel',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./matches-carousel.component.css']
 })
 export class MatchesCarouselComponent implements OnInit {
+
+  @Input() matches: Match[] = [];
 
   constructor() { }
 

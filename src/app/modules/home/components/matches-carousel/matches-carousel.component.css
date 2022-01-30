@@ -1,0 +1,9 @@
+.scoreboard {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.match-info {
+  font-size: 13px;
+  color: gray;
+}
