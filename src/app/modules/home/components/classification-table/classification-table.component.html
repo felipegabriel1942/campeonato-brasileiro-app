@@ -1,1 +1,52 @@
-<p>classification-table works!</p>
+<div class="card shadow-sm table-responsive">
+  <table class="table table-sm">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Time</th>
+        <th title="Total de pontos">PTS</th>
+        <th title="Total de jogos">J</th>
+        <th title="Total de vitorias">V</th>
+        <th title="Total de empates">E</th>
+        <th title="Total de derrotas">D</th>
+        <th title="Total de gols marcados">GP</th>
+        <th title="Total de gols contra">GC</th>
+        <th title="Saldo de gols">SG</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of classification; let i = index">
+        <td>{{ i + 1 }}º</td>
+        <td>
+          <img [src]="team.teamCrest" height="20" />
+          {{ team.team }}
+        </td>
+        <td>
+          {{ team.points }}
+        </td>
+        <td>
+          {{ team.totalMatches }}
+        </td>
+        <td>
+          {{ team.victories }}
+        </td>
+        <td>
+          {{ team.ties }}
+        </td>
+        <td>
+          {{ team.defeats }}
+        </td>
+        <td>
+          {{ team.goalsFor }}
+        </td>
+        <td>
+          {{ team.goalsAgainst }}
+        </td>
+        <td>
+          {{ team.goalsDifference }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

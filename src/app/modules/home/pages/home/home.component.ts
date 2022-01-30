@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassificationService } from 'src/app/core/http/classification.service';
+import { Classification } from 'src/app/shared/models/classification.model';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,18 @@ import { ClassificationService } from 'src/app/core/http/classification.service'
 })
 export class HomeComponent implements OnInit {
 
+  classification: Classification[] = [];
+
   constructor(private classificationService: ClassificationService) { }
 
   ngOnInit(): void {
+    this.getClassification();
+  }
+
+  getClassification(): void {
     this.classificationService.findClassificationBySeason(2021, 'a')
       .subscribe(res => {
-        console.log(res);
+        this.classification = res;
     });
   }
 
