@@ -7,3 +7,20 @@
   font-size: 13px;
   color: gray;
 }
+
+.round-selector {
+  background-color: #f8f9fa;
+  height: 33px;
+}
+
+.round-selector-pointer {
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  color: green;
+}
+
+.round-selector-text {
+  font-weight: bold;
+  color: green;
+}

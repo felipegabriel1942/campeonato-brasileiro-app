@@ -1,10 +1,14 @@
-<div class="row">
+<div class="row mx-0">
   <div class="col-md-8">
     <app-classification-table
       [classification]="classification"
     ></app-classification-table>
   </div>
   <div class="col-md-4">
-    <app-matches-carousel [matches]="matches"></app-matches-carousel>
+    <app-matches-carousel
+      [matches]="matches"
+      [round]="round"
+      (onChangeRound)="updateMatches($event)"
+    ></app-matches-carousel>
   </div>
 </div>
