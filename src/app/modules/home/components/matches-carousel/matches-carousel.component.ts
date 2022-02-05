@@ -1,12 +1,20 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Match } from 'src/app/shared/models/match.model';
 
+export enum Direction {
+  FORWARD,
+  BACKWARD
+}
+
 @Component({
   selector: 'app-matches-carousel',
   templateUrl: './matches-carousel.component.html',
   styleUrls: ['./matches-carousel.component.css'],
 })
 export class MatchesCarouselComponent implements OnInit {
+
+  direction = Direction;
+
   @Input() matches: Match[] = [];
   @Input() round: number;
 
@@ -14,12 +22,20 @@ export class MatchesCarouselComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-  onBackRound(): void {
-    console.log('Going back');
+  }
 
-    const newRound = this.round - 1;
+  changeRound(direction: Direction): void {
+    let newRound = this.round;
+
+    if (direction === this.direction.FORWARD) {
+      newRound++;
+    }
+
+    if (direction === this.direction.BACKWARD) {
+      newRound--;
+    }
 
     if (newRound > 38 || newRound < 1) {
       return;
@@ -29,15 +45,11 @@ export class MatchesCarouselComponent implements OnInit {
 
   }
 
-  onForwardRound(): void {
-    console.log('Going forward');
+  get disableForwardBtn(): boolean {
+    return this.round === 38;
+  }
 
-    const newRound = this.round + 1;
-
-    if (newRound > 38 || newRound < 1) {
-      return;
-    }
-
-    this.onChangeRound.emit(newRound);
+  get disableBackwardBtn(): boolean {
+    return this.round === 1;
   }
 }
