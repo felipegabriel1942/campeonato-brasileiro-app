@@ -1,4 +1,4 @@
-<div class="card round-selector shadow-sm py-1">
+<div class="card round-selector shadow py-1">
   <div class="row d-flex align-items-center">
     <div class="col-3 d-flex flex-row-reverse">
       <button
@@ -6,7 +6,7 @@
         (click)="changeRound(direction.BACKWARD)"
         [disabled]="disableBackwardBtn"
       >
-        <
+      <fa-icon [icon]="faAngleLeft"></fa-icon>
       </button>
     </div>
     <div class="col-6 d-flex justify-content-center round-selector-text">
@@ -19,7 +19,7 @@
         class="btn btn-success btn-sm"
         [disabled]="disableForwardBtn"
       >
-        >
+      <fa-icon [icon]="faAngleRight"></fa-icon>
       </button>
     </div>
   </div>
@@ -63,4 +63,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="matches.length == 0" class="card shadow-sm p-2">
+  Partidas não encontradas
 </div>

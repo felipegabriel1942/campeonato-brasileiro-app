@@ -4,12 +4,22 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ClassificationTableComponent } from './components/classification-table/classification-table.component';
 import { MatchesCarouselComponent } from './components/matches-carousel/matches-carousel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [ClassificationTableComponent , HomeComponent, MatchesCarouselComponent],
+  declarations: [
+    ClassificationTableComponent,
+    HomeComponent,
+    MatchesCarouselComponent,
+  ],
   imports: [
     CommonModule,
-    HomeRoutingModule
-  ]
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
+
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

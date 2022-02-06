@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Match } from 'src/app/shared/models/match.model';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 export enum Direction {
   FORWARD,
@@ -12,6 +13,9 @@ export enum Direction {
   styleUrls: ['./matches-carousel.component.css'],
 })
 export class MatchesCarouselComponent implements OnInit {
+
+  faAngleLeft = faAngleLeft;
+  faAngleRight = faAngleRight;
 
   direction = Direction;
 
@@ -46,10 +50,10 @@ export class MatchesCarouselComponent implements OnInit {
   }
 
   get disableForwardBtn(): boolean {
-    return this.round === 38;
+    return this.round === 38 || this.matches.length == 0;
   }
 
   get disableBackwardBtn(): boolean {
-    return this.round === 1;
+    return this.round === 1 || this.matches.length == 0;
   }
 }

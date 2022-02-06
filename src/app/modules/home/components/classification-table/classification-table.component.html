@@ -1,5 +1,5 @@
-<div class="card shadow-sm table-responsive">
-  <table class="table table-sm">
+<div class="card shadow table-responsive">
+  <table class="table">
     <thead class="table-light">
       <tr>
         <th>#</th>
@@ -44,6 +44,11 @@
         </td>
         <td>
           {{ team.goalsDifference }}
+        </td>
+      </tr>
+      <tr *ngIf="classification.length == 0">
+        <td colspan="10">
+          Classificação não encontrada
         </td>
       </tr>
     </tbody>
