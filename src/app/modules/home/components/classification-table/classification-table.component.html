@@ -15,11 +15,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let team of classification; let i = index">
+      <tr
+        *ngFor="let team of classification; let i = index"
+        [ngStyle]="{ 'background-color': i > 15 ? 'rgb(240, 207, 207)' : '' }"
+      >
         <td>{{ i + 1 }}º</td>
         <td>
-          <img [src]="team.teamCrest" height="20" />
-          {{ team.team }}
+          <img [src]="team.teamCrest" height="30" [title]="team.team" />
         </td>
         <td>
           {{ team.points }}
@@ -47,11 +49,8 @@
         </td>
       </tr>
       <tr *ngIf="classification.length == 0">
-        <td colspan="10">
-          Classificação não encontrada
-        </td>
+        <td colspan="10">Classificação não encontrada</td>
       </tr>
     </tbody>
   </table>
-
 </div>

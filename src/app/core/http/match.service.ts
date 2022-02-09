@@ -13,4 +13,8 @@ export class MatchService {
   findMatches(season: number, division: string, round: number): Observable<Match[]> {
     return this.http.get<Match[]>(`match/matches-by-season-and-round?season=${season}&division=${division}&round=${round}`);
   }
+
+  findSeasons(): Observable<number[]> {
+    return this.http.get<number[]>(`match/seasons`);
+  }
 }

@@ -6,11 +6,11 @@
         (click)="changeRound(direction.BACKWARD)"
         [disabled]="disableBackwardBtn"
       >
-      <fa-icon [icon]="faAngleLeft"></fa-icon>
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
       </button>
     </div>
     <div class="col-6 d-flex justify-content-center round-selector-text">
-      RODADA {{ round }}
+      Rodada {{ round }}
     </div>
 
     <div class="col-3">
@@ -19,7 +19,7 @@
         class="btn btn-success btn-sm"
         [disabled]="disableForwardBtn"
       >
-      <fa-icon [icon]="faAngleRight"></fa-icon>
+        <fa-icon [icon]="faAngleRight"></fa-icon>
       </button>
     </div>
   </div>
@@ -57,9 +57,11 @@
         />
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-1">
       <div class="col-12 d-flex justify-content-center match-info">
-        {{ match.stadium }}
+        <span class="badge rounded-pill bg-warning text-dark">{{
+          match.stadium
+        }}</span>
       </div>
     </div>
   </div>

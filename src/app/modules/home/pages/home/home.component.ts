@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
+import { finalize } from 'rxjs/operators';
+
 import { ClassificationService } from 'src/app/core/http/classification.service';
 import { MatchService } from 'src/app/core/http/match.service';
 import { Classification } from 'src/app/shared/models/classification.model';
@@ -14,7 +17,7 @@ export class HomeComponent implements OnInit {
   classification: Classification[] = [];
   matches: Match[] = [];
   round: number = 38;
-  seasons: number[] = [2021, 2020, 2019];
+  seasons: number[] = [];
   divisions: string[] = ['A', 'B'];
   form: FormGroup = new FormGroup({
     season: new FormControl(2021),
@@ -27,8 +30,20 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getClassification();
-    this.getMatches();
+    this.setInitialInfo();
+  }
+
+  setInitialInfo(): void {
+    this.matchService.findSeasons().subscribe((res) => {
+      if (res.length > 0) {
+        this.seasons = res;
+        this.getClassification();
+        this.getMatches();
+      } else {
+        const actualSeason = new Date().getFullYear();
+        this.seasons = [actualSeason];
+      }
+    });
   }
 
   getClassification(): void {
@@ -39,14 +54,17 @@ export class HomeComponent implements OnInit {
         this.form.get('season').value,
         this.form.get('division').value
       )
+      .pipe(
+        finalize(() => {
+          this.updateMatches();
+        })
+      )
       .subscribe((res) => {
         this.classification = res;
       });
-
-    this.updateMatches(38);
   }
 
-  updateMatches(newRound: number): void {
+  updateMatches(newRound: number = 38): void {
     this.round = newRound;
     this.getMatches();
   }
