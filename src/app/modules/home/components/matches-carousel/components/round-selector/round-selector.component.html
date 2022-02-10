@@ -1,0 +1,26 @@
+<div class="card round-selector shadow py-1">
+  <div class="row d-flex align-items-center">
+    <div class="col-3 d-flex flex-row-reverse">
+      <button
+        class="btn btn-success btn-sm"
+        (click)="changeRound(direction.BACKWARD)"
+        [disabled]="disableBackwardBtn"
+      >
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+      </button>
+    </div>
+    <div class="col-6 d-flex justify-content-center round-selector-text">
+      Rodada {{ round }}
+    </div>
+
+    <div class="col-3">
+      <button
+        (click)="changeRound(direction.FORWARD)"
+        class="btn btn-success btn-sm"
+        [disabled]="disableForwardBtn"
+      >
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

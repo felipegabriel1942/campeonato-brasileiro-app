@@ -1,0 +1,15 @@
+.round-selector {
+  background-color: #f8f9fa;
+  height: 41px;
+}
+
+.round-selector-text {
+  font-weight: bold;
+  color: green;
+}
+
+button {
+  border-radius: 35px;
+  height: 29px;
+  width: 29px;
+}
