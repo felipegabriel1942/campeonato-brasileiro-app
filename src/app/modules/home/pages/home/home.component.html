@@ -1,44 +1,21 @@
-<div class="px-3">
-  <form [formGroup]="form">
-    <div class="row mx-0 mb-3">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        <label>Temporada</label>
-        <select
-          class="form-select"
-          formControlName="season"
-          (change)="getClassification()"
-        >
-          <option *ngFor="let season of seasons">
-            {{ season }}
-          </option>
-        </select>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        <label>Divisão</label>
-        <select
-          class="form-select"
-          formControlName="division"
-          (change)="getClassification()"
-        >
-          <option *ngFor="let division of divisions">
-            {{ division }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </form>
-  <div class="row mx-0">
-    <div class="col-md-8 mb-3">
-      <app-classification-table
-        [classification]="classification"
-      ></app-classification-table>
-    </div>
-    <div class="col-md-4">
-      <app-matches-carousel
-        [matches]="matches"
-        [round]="round"
-        (roundChanged)="updateMatches($event)"
-      ></app-matches-carousel>
-    </div>
+<app-filter
+  [form]="form"
+  [divisions]="divisions"
+  [seasons]="seasons"
+  (onFilterChange)="getClassification()"
+></app-filter>
+
+<div class="row mx-0">
+  <div class="col-md-8 mb-3">
+    <app-classification-table
+      [classification]="classification"
+    ></app-classification-table>
+  </div>
+  <div class="col-md-4">
+    <app-matches-carousel
+      [matches]="matches"
+      [round]="round"
+      (roundChanged)="updateMatches($event)"
+    ></app-matches-carousel>
   </div>
 </div>

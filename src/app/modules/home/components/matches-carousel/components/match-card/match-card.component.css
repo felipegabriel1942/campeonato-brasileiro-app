@@ -1,9 +1,16 @@
-.match-info {
-  font-size: 13px;
-  color: gray;
+.match-date {
+  font-size: 12px;
+  color: grey;
+  font-weight: 500;
 }
 
 .scoreboard {
   font-size: 25px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.scoreboard-item {
+  margin: 0px 10px;
 }

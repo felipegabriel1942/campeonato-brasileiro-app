@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RoundSelectorComponent } from './components/matches-carousel/components/round-selector/round-selector.component';
 import { MatchCardComponent } from './components/matches-carousel/components/match-card/match-card.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MatchCardComponent } from './components/matches-carousel/components/mat
     MatchesCarouselComponent,
     RoundSelectorComponent,
     MatchCardComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,

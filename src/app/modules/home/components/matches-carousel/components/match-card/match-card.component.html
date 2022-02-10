@@ -1,12 +1,12 @@
 <div class="card shadow-sm py-3">
   <div class="row">
-    <div class="col-12 d-flex justify-content-center match-info">
+    <div class="col-12 d-flex justify-content-center match-date">
       {{ match.date | date: "dd/MM/yyyy HH:mm" }}
     </div>
   </div>
 
-  <div class="row mx-0 my-2">
-    <div class="col-4 d-flex flex-row-reverse">
+  <div class="scoreboard my-2">
+    <div class="scoreboard-item">
       <img
         [src]="match.homeTeamCrest"
         height="40"
@@ -14,14 +14,14 @@
         [title]="match.homeTeam"
       />
     </div>
-    <div class="col-1 d-flex align-items-center scoreboard">
+    <div class="scoreboard-item">
       {{ match.homeTeamGoals }}
-    </div>
-    <div class="col-1 d-flex align-items-center scoreboard">X</div>
-    <div class="col-1 d-flex align-items-center scoreboard">
+    </div >
+    <div class="scoreboard-item">X</div>
+    <div class="scoreboard-item">
       {{ match.visitorTeamGoals }}
     </div>
-    <div class="col-4">
+    <div class="scoreboard-item">
       <img
         [src]="match.visitorTeamCrest"
         height="40"
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 d-flex justify-content-center match-info">
+    <div class="col-12 d-flex justify-content-center">
       <span class="badge rounded-pill bg-warning text-dark">{{
         match.stadium
       }}</span>
