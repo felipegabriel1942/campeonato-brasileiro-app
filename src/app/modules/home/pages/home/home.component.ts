@@ -47,8 +47,6 @@ export class HomeComponent implements OnInit {
   }
 
   getClassification(): void {
-    this.classification = [];
-
     this.classificationService
       .findClassificationBySeason(
         this.form.get('season').value,
@@ -59,9 +57,14 @@ export class HomeComponent implements OnInit {
           this.updateMatches();
         })
       )
-      .subscribe((res) => {
-        this.classification = res;
-      });
+      .subscribe(
+        (res) => {
+          this.classification = res;
+        },
+        (error) => {
+          this.classification = [];
+        }
+      );
   }
 
   updateMatches(newRound: number = 38): void {
@@ -70,8 +73,6 @@ export class HomeComponent implements OnInit {
   }
 
   getMatches(): void {
-    this.matches = [];
-
     this.matchService
       .findMatches(
         this.form.get('season').value,

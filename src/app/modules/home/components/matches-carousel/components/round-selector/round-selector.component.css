@@ -5,11 +5,16 @@
 
 .round-selector-text {
   font-weight: bold;
-  color: green;
+  color: rgb(73, 91, 168);
 }
 
 button {
   border-radius: 35px;
   height: 29px;
   width: 29px;
+  color: rgb(73, 91, 168);
+}
+
+fa-icon {
+  font-size: 18px;
 }
